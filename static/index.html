@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoPickles.ai - Order Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍔 NoPickles.ai</h1>
+            <p class="subtitle">Your AI Ordering Assistant</p>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <strong>Assistant:</strong> Hi there! Welcome to our fast food kiosk. What can I get for you today?
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-summary" id="orderSummary">
+                <h3>Current Order</h3>
+                <div class="order-items" id="orderItems">
+                    <p class="empty-order">No items yet</p>
+                </div>
+                <div class="order-total">
+                    <strong>Total: $<span id="totalPrice">0.00</span></strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-container">
+            <form id="chatForm">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Type your order here... (e.g., 'I'd like a large coffee and a donut')"
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" id="sendButton">
+                    <span>Send</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="debug-info" id="debugInfo" style="display: none;">
+            <h4>Debug Info</h4>
+            <div id="debugContent"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
