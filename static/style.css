@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.chat-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8f9fa;
+}
+
+.message {
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-content {
+    padding: 15px 20px;
+    border-radius: 15px;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+.user-message .message-content {
+    background: #667eea;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.bot-message .message-content {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 5px;
+}
+
+.user-message strong,
+.bot-message strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.order-summary {
+    flex: 1;
+    background: white;
+    border-left: 2px solid #e0e0e0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.order-summary h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.order-items {
+    margin-bottom: 20px;
+}
+
+.order-item {
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid #667eea;
+}
+
+.order-item .item-name {
+    font-weight: 600;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.order-item .item-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.empty-order {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+.order-total {
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.chat-input-container {
+    padding: 20px;
+    background: white;
+    border-top: 2px solid #e0e0e0;
+}
+
+#chatForm {
+    display: flex;
+    gap: 10px;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#messageInput:focus {
+    border-color: #667eea;
+}
+
+#sendButton {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#sendButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#sendButton:active {
+    transform: translateY(0);
+}
+
+.debug-info {
+    background: #f8f9fa;
+    border-top: 2px solid #e0e0e0;
+    padding: 15px;
+    font-size: 0.9em;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.debug-info h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+#debugContent {
+    font-family: monospace;
+    color: #666;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+    }
+    
+    .order-summary {
+        border-left: none;
+        border-top: 2px solid #e0e0e0;
+        max-height: 200px;
+    }
+    
+    .message-content {
+        max-width: 90%;
+    }
+}
